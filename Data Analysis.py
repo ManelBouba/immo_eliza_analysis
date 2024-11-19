@@ -18,6 +18,9 @@ print(data.describe())
 # Check for missing values
 print(data.isnull().sum())
 
+ # Separate numeric and object (categorical) columns
+numeric_data = data.select_dtypes(include=['number'])
+object_data = data.select_dtypes(include=['object'])
 # Combined function to compute and plot two heatmaps: 1) with price, 2) between variables
 def compute_and_plot_heatmaps(data, target_column='Price', output_csv_file='correlation_results.csv'):
     
@@ -25,9 +28,7 @@ def compute_and_plot_heatmaps(data, target_column='Price', output_csv_file='corr
         print(f"Error: '{target_column}' not found in the dataset.")
         return
     
-    # Separate numeric and object (categorical) columns
-    numeric_data = data.select_dtypes(include=['number'])
-    object_data = data.select_dtypes(include=['object'])
+   
     
     # Convert object columns to numeric using label encoding for correlation purposes
     label_encoder = LabelEncoder()
@@ -79,3 +80,19 @@ def compute_and_plot_heatmaps(data, target_column='Price', output_csv_file='corr
 
 # Example usage:
 compute_and_plot_heatmaps(data, target_column='Price', output_csv_file='correlation_with_price.csv')
+# Display the counts
+print(f"Numerical columns ({len(numeric_data)}):\n", numeric_data)
+print(f"Object (categorical) columns ({len(object_data)}):\n", object_data)
+
+# Convert object columns into numerical using LabelEncoder
+label_encoder = LabelEncoder()
+for col in object_data:
+    data[col] = label_encoder.fit_transform(data[col].astype(str))
+
+# Display the updated data with transformed categorical variables
+print("\nTransformed Data (first few rows):")
+print(data.head())
+
+# Save the transformed dataset to a new CSV file
+data.to_csv("transformed_data.csv", index=False)
+print("\nTransformed data saved as 'transformed_data.csv'.")
