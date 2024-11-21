@@ -15,7 +15,7 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
         
         
         # Fill missing values with defaults
-        df[['Garden','Terrace','Swimming_Pool']] = df[['Garden','Terrace','Swimming_Pool']].fillna(0)
+        #df[['Garden','Terrace','Swimming_Pool']] = df[['Garden','Terrace','Swimming_Pool']].fillna(0)
         
         #Fill missing values for categorical data with mode based on similar entries by grouped data
         lift_dict = get_grouped_mode(df,'Subtype_of_Property', 'Lift')
