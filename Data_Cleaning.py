@@ -49,7 +49,7 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
         (df["Locality"].astype(str).str.contains(east_flanders)),
         ]
 
-        df["Region"] = np.select(conditions,regions, default='Other')
+        df["Province"] = np.select(conditions,regions, default='Other')
 
 
         price_bins = list(range(0, 300000, 100000))  
@@ -63,7 +63,7 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
         ]
 
         df['Price_Group'] = pd.cut(df['Price'], bins=price_bins, labels=price_labels, include_lowest=True)
-        df["Price_Group_Per_Region"] = df['Region'] + '_' +df["Price_Group"].astype(str)
+        df["Price_Group_Per_Region"] = df['Province'] + '_' +df["Price_Group"].astype(str)
         state_mode_dict = df.groupby('Price_Group_Per_Region')['State_of_the_Building'].apply(
             lambda x: x.mode().iloc[0] if not x.mode().empty else None
         ).to_dict()
@@ -75,6 +75,23 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
 
         df['Surface_area_plot_of_land'] = df['Surface_area_plot_of_land'].fillna(0)
 
+        # Remove outliers using IQR
+        def remove_outliers(data, columns):
+            for col in columns:
+                if col in data.columns:
+                    Q1 = data[col].quantile(0.25)
+                    Q3 = data[col].quantile(0.75)
+                    IQR = Q3 - Q1
+                    lower_bound = Q1 - 1.5 * IQR
+                    upper_bound = Q3 + 1.5 * IQR
+                    data = data[(data[col] >= lower_bound) & (data[col] <= upper_bound)]
+            return data
+        
+        numerical_columns = df.select_dtypes(include=['float64', 'int64']).columns
+        print(f"Removing outliers from columns: {list(numerical_columns)}")
+        df = remove_outliers(df, numerical_columns)
+
+        df.drop(['Price_Group','Price_Group_Per_Region'], axis=1, inplace=True)
         #Removing outliers:
         print(df.describe())
         # # Save the cleaned dataset
@@ -100,4 +117,3 @@ def get_grouped_mode(dataframe, group, column):
    return parsed_mode_dict
 # Example usage:
 clean_dataset_with_analysis('immoweb_data.csv', 'immoweb_data_cleaned.csv')
-
