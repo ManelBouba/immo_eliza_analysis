@@ -22,8 +22,8 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
         df["Lift"] = df["Lift"].fillna(df["Subtype_of_Property"].map(lift_dict))
         print(lift_dict)
 
-        #Categorize municipalities into regions:
-        regions = ['Brussels Capital','Walloon Brabant', 'Flemish Brabant', 'Antwerp', 'Limburg','Liège','Namur','Hainaut','Luxembourg','West Flanders','East Flanders']
+        #Categorize municipalities into provinces:
+        provinces = ['Brussels Capital','Walloon Brabant', 'Flemish Brabant', 'Antwerp', 'Limburg','Liège','Namur','Hainaut','Luxembourg','West Flanders','East Flanders']
         brussels_capital = r'^10|^11|^12'
         walloon_brabant = r'^13|^14'
         flemish_brabant = r'^15|^16|^17|^18|^19|^30|^31|^32|^34'
@@ -49,7 +49,20 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
         (df["Locality"].astype(str).str.contains(east_flanders)),
         ]
 
-        df["Province"] = np.select(conditions,regions, default='Other')
+        df["Province"] = np.select(conditions,provinces, default='Other')
+
+        regions = ['Bruxelles-Capital','Wallonia','Flanders']
+        brussels_capital = r'Brussels Capital'
+        flanders = r'Flemish Brabant|Antwerp|West Flanders|East Flanders'
+        wallonia = r'Walloon Brabant|Limburg|Liège|Namur|Hainaut|Luxembourg'
+        conditions = [
+        (df["Province"].astype(str).str.contains(brussels_capital)),
+        (df["Province"].astype(str).str.contains(wallonia)),
+        (df["Province"].astype(str).str.contains(flanders))
+        ]
+
+        df["Region"] = np.select(conditions,regions, default='Other')
+
 
 
         price_bins = list(range(0, 300000, 100000))  
@@ -67,6 +80,11 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
         state_mode_dict = df.groupby('Price_Group_Per_Region')['State_of_the_Building'].apply(
             lambda x: x.mode().iloc[0] if not x.mode().empty else None
         ).to_dict()
+        
+        size_bins = [0,50,100,200,300]
+        size_bins_labels = ["Small","Medium","Large","Very Large"]
+
+        df["Property_Size"] = pd.cut(df['Living_Area'],bins=size_bins,labels=size_bins_labels)
 
         df["State_of_the_Building"] = df["State_of_the_Building"].fillna(df['Price_Group_Per_Region'].map(state_mode_dict))
 
@@ -107,7 +125,7 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
         print(missing_info)
 
         print(f"Cleaned dataset saved to {output_path}")
-    
+        
     except Exception as e:
         print(f"An error occurred: {e}")
 
