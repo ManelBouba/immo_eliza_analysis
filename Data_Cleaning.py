@@ -79,12 +79,13 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
         def remove_outliers(data, columns):
             for col in columns:
                 if col in data.columns:
-                    Q1 = data[col].quantile(0.25)
-                    Q3 = data[col].quantile(0.75)
-                    IQR = Q3 - Q1
-                    lower_bound = Q1 - 1.5 * IQR
-                    upper_bound = Q3 + 1.5 * IQR
-                    data = data[(data[col] >= lower_bound) & (data[col] <= upper_bound)]
+                    if data[col].nunique() > 2: 
+                        Q1 = data[col].quantile(0.25)
+                        Q3 = data[col].quantile(0.75)
+                        IQR = Q3 - Q1
+                        lower_bound = Q1 - 1.5 * IQR
+                        upper_bound = Q3 + 1.5 * IQR
+                        data = data[(data[col] >= lower_bound) & (data[col] <= upper_bound)]
             return data
         
         numerical_columns = df.select_dtypes(include=['float64', 'int64']).columns
