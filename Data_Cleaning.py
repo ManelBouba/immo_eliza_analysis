@@ -87,7 +87,7 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
                     data = data[(data[col] >= lower_bound) & (data[col] <= upper_bound)]
             return data
         
-        numerical_columns = df.select_dtypes(include=['float64', 'int64']).columns
+        numerical_columns = ['Price','Number_of_Rooms','Living_Area','Surface_area_plot_of_land']
         print(f"Removing outliers from columns: {list(numerical_columns)}")
         df = remove_outliers(df, numerical_columns)
 
