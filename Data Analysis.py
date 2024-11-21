@@ -7,8 +7,18 @@ from sklearn.preprocessing import LabelEncoder
 # Set visualization style
 sns.set_style("whitegrid")
 
-# Load the data
-data = pd.read_csv("immoweb_data_cleaned.csv")
+# Load your CSV file
+df = pd.read_csv('immoweb_data_cleaned.csv')
+
+# Drop the last two columns
+df = df.iloc[:, :-2]
+
+# Save the cleaned DataFrame back to CSV
+df.to_csv('immoweb_data_cleaned_.csv', index=False)
+
+# Load the cleaned data
+data = pd.read_csv("immoweb_data_cleaned_.csv")
+
 
 # Preview the data
 print(data.head())
@@ -18,17 +28,20 @@ print(data.describe())
 # Check for missing values
 print(data.isnull().sum())
 
- # Separate numeric and object (categorical) columns
-numeric_data = data.select_dtypes(include=['number'])
+# Optionally, handle missing values (you can either drop or impute them)
+# Example: Drop rows with missing values
+# data = data.dropna()
+
+# Separate numeric and object (categorical) columns
+numeric_data = data.select_dtypes(include=['number', 'float64', 'int64'])
 object_data = data.select_dtypes(include=['object'])
+
 # Combined function to compute and plot two heatmaps: 1) with price, 2) between variables
 def compute_and_plot_heatmaps(data, target_column='Price', output_csv_file='correlation_results.csv'):
     
     if target_column not in data.columns:
         print(f"Error: '{target_column}' not found in the dataset.")
         return
-    
-   
     
     # Convert object columns to numeric using label encoding for correlation purposes
     label_encoder = LabelEncoder()
@@ -80,7 +93,8 @@ def compute_and_plot_heatmaps(data, target_column='Price', output_csv_file='corr
 
 # Example usage:
 compute_and_plot_heatmaps(data, target_column='Price', output_csv_file='correlation_with_price.csv')
-# Display the counts
+
+# Display the counts of numerical and categorical columns
 print(f"Numerical columns ({len(numeric_data)}):\n", numeric_data)
 print(f"Object (categorical) columns ({len(object_data)}):\n", object_data)
 
