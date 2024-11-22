@@ -24,17 +24,17 @@ def clean_dataset_with_analysis(file_path, output_path, drop_threshold=0.05):
 
         #Categorize municipalities into provinces:
         provinces = ['Brussels Capital','Walloon Brabant', 'Flemish Brabant', 'Antwerp', 'Limburg','Liège','Namur','Hainaut','Luxembourg','West Flanders','East Flanders']
-        brussels_capital = r'^10|^11|^12'
-        walloon_brabant = r'^13|^14'
-        flemish_brabant = r'^15|^16|^17|^18|^19|^30|^31|^32|^34'
-        antwerp = r'^20|^21|^22|^23|^24|^25|^26|^27|^28|^29'
-        limburg = r'^35|^36|^37|^38|^39'
-        liège = r'^40|^41|^44|^43|^44|^45|^46|^47|^48|^49'
-        namur = r'^50|^51|^55|^53|^55|^55|^56|^57|^58|^59'
-        hainaut = r'^60|^61|^62|63|^64|^65|^70|^71|^77|^73|^74|^75|^76|^77|^78|^79'
-        luxembourg = r'^66|^67|^68|^69'
-        west_flanders = r'^70|^71|^72|^73|^74|^75|^76|^77|^78|^79'
-        east_flanders = r'^90|^91|^92|^93|^94|^95|^96|^97|^98|^99'
+        brussels_capital = '^10|^11|^12'
+        walloon_brabant = '^13|^14'
+        flemish_brabant = '^15|^16|^17|^18|^19|^30|^31|^32|^33|^34'
+        antwerp = '^20|^21|^22|^23|^24|^25|^26|^27|^28|^29'
+        limburg = '^35|^36|^37|^38|^39'
+        liège = '^40|^41|^42|^43|^44|^45|^46|^47|^48|^49'
+        namur = '^50|^51|^55|^53|^55|^55|^56|^57|^58|^59'
+        hainaut = '^60|^61|^62|63|^64|^65|^70|^71|^77|^73|^74|^75|^76|^77|^78|^79'
+        luxembourg = '^66|^67|^68|^69'
+        west_flanders = '^80|^81|^82|^83|^84|^85|^86|^87|^88|^89'
+        east_flanders = '^90|^91|^92|^93|^94|^95|^96|^97|^98|^99'
         conditions = [
         (df["Locality"].astype(str).str.contains(brussels_capital)),
         (df["Locality"].astype(str).str.contains(walloon_brabant)),
