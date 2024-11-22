@@ -42,10 +42,10 @@ filtered_data = filtered_data[
 # Dashboard Title
 st.title("Real Estate Interactive Dashboard")
 
-# Display filtered data
-st.header("Filtered Data")
-st.write(f"Number of records after applying filters: {len(filtered_data)}")
-st.dataframe(filtered_data)
+# # Display filtered data
+# st.header("Filtered Data")
+# st.write(f"Number of records after applying filters: {len(filtered_data)}")
+# st.dataframe(filtered_data)
 
 # Key statistics (mean, median, etc.) for numerical columns
 st.subheader("Key Statistics")
@@ -100,30 +100,6 @@ locality_price_fig = px.bar(
 )
 st.plotly_chart(locality_price_fig)
 
-# Boxplot of Price by Property Type
-st.header("Price Distribution by Property Type")
-boxplot_fig = px.box(
-    filtered_data,
-    x="Type_of_Property",
-    y="Price",
-    color="Type_of_Property",
-    title="Boxplot of Price by Property Type",
-    template="plotly_dark"
-)
-st.plotly_chart(boxplot_fig)
-
-# Pairwise Correlations
-st.header("Pairwise Relationships")
-pairwise_fig = px.scatter_matrix(
-    filtered_data,
-    dimensions=["Living_Area", "Price", "Number_of_Rooms"],
-    color="Type_of_Property",
-    title="Pairwise Correlation of Key Variables",
-    template="plotly_dark"
-)
-st.plotly_chart(pairwise_fig)
-# Factor Impact on Price (e.g., State of the Building, Number of Rooms, Fully Equipped Kitchen, etc.)
-st.subheader("Impact of Features on Price")
 
 # Filtered data based on selected features' impact
 state_of_building_data = filtered_data[['State_of_the_Building', 'Price']].groupby('State_of_the_Building').mean().reset_index()
@@ -146,6 +122,7 @@ st.write("### Impact of Fully Equipped Kitchen on Price")
 st.write("How does having a fully equipped kitchen influence the price?")
 st.write(fully_equipped_kitchen_data)
 
+
 # Terrace Impact
 st.write("### Impact of Terrace on Price")
 st.write("Does having a terrace affect the price?")
@@ -154,3 +131,40 @@ st.write(terrace_data)
 # Save transformed data if needed
 filtered_data.to_csv("C:/Users/pc click/immo_eliza_analysis/immoweb_data_filtered.csv", index=False)
 st.write("Filtered data saved to 'immoweb_data_filtered.csv'.")
+
+
+# Real Estate Prices Data (You can also load this from a CSV or a database if required)
+real_estate_prices = {
+    'Region': ['Belgium', 'Belgium', 'Wallonia', 'Wallonia', 'Flanders', 'Flanders', 'Brussels', 'Brussels'],
+    'Municipality': ['Knokke-Heist', 'Vaux-sur-Sûre', 'Lasne', 'Vaux-sur-Sûre', 'Knokke-Heist', 'Alveringem', 'Ixelles', 'Molenbeek-Saint-Jean'],
+    'Type': ['Most Expensive', 'Least Expensive', 'Most Expensive', 'Least Expensive', 'Most Expensive', 'Least Expensive', 'Most Expensive', 'Least Expensive'],
+    'Average Price (EUR)': [601451.55, 125000.00, 395000.00, 125000.00, 601451.55, 169000.00, 458077.52, 264723.60],
+    'Median Price (EUR)': [599000.00, 125000.00, 395000.00, 125000.00, 599000.00, 169000.00, 415000.00, 239000.00],
+    'Price per Square Meter (EUR)': [7464.10, 657.89, 4030.61, 657.89, 7464.10, 840.79, 4563.30, 2796.30]
+}
+
+# Convert to DataFrame
+real_estate_df = pd.DataFrame(real_estate_prices)
+
+# Display the Real Estate Prices Table
+st.header("Real Estate Prices in Belgium")
+st.write("This table displays average, median prices, and price per square meter for various regions and municipalities in Belgium.")
+
+# Display the table
+st.table(real_estate_df)
+
+# Bin the 'Living_Area' into categories
+size_bins = [0, 50, 100, 200, 300]
+size_bins_labels = ["Small (0-50 m2)", "Medium (50-100 m2)", "Large (100-200 m2)", "Very Large (200-300 m2)"]
+data["Property_Size"] = pd.cut(data['Living_Area'], bins=size_bins, labels=size_bins_labels)
+
+# Create the histogram plot for property sizes
+plt.figure(figsize=(10, 6))
+sns.countplot(x='Property_Size', data=data, order=size_bins_labels, palette='muted')
+plt.title('Distribution of Properties by Size')
+plt.xlabel('Property Size (m²)')
+plt.ylabel('Count')
+
+# Show the plot in Streamlit
+st.header("Distribution of Properties by Size")
+st.pyplot(plt)
