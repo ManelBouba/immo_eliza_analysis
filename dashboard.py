@@ -47,32 +47,9 @@ st.header("Filtered Data")
 st.write(f"Number of records after applying filters: {len(filtered_data)}")
 st.dataframe(filtered_data)
 
-# # Correlation Heatmap
-# st.header("Correlation Heatmap")
-# # Calculate correlation matrix
-# correlation_matrix = filtered_data.corr()
-
-# # # Create a seaborn heatmap for correlation matrix
-# # fig3, ax = plt.subplots(figsize=(10, 8))
-# # sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f", ax=ax, cbar_kws={'shrink': 0.8})
-# # st.pyplot(fig3)
-
-# # # Correlation Plotly Interactive
-# # st.header("Interactive Correlation Plot")
-# # Create a Plotly Heatmap
-# fig4 = go.Figure(data=go.Heatmap(
-#     z=correlation_matrix.values,
-#     x=correlation_matrix.columns,
-#     y=correlation_matrix.columns,
-#     colorscale="YlGnBu",
-#     colorbar=dict(title="Correlation Coefficient")
-# ))
-# fig4.update_layout(
-#     title="Correlation Heatmap (Interactive)",
-#     xaxis_title="Variables",
-#     yaxis_title="Variables"
-# )
-# st.plotly_chart(fig4)
+# Key statistics (mean, median, etc.) for numerical columns
+st.subheader("Key Statistics")
+st.write(filtered_data.describe())
 
 # Price vs Living Area Scatter Plot
 st.header("Price vs Living Area")
@@ -110,10 +87,10 @@ living_area_fig = px.histogram(
     template="plotly_dark"
 )
 st.plotly_chart(living_area_fig)
-df=pd.read_csv("C:/Users/pc click/immo_eliza_analysis/immoweb_data_cleaned.csv")
-# Price per Locality
+
+# Average Price per Locality
 st.header("Average Price per Locality")
-avg_price_locality = df.groupby("Municipality")["Price"].mean().reset_index().sort_values(by="Price", ascending=False)
+avg_price_locality = data.groupby("Municipality")["Price"].mean().reset_index().sort_values(by="Price", ascending=False)
 locality_price_fig = px.bar(
     avg_price_locality.head(20),
     x="Municipality",
@@ -145,6 +122,34 @@ pairwise_fig = px.scatter_matrix(
     template="plotly_dark"
 )
 st.plotly_chart(pairwise_fig)
+# Factor Impact on Price (e.g., State of the Building, Number of Rooms, Fully Equipped Kitchen, etc.)
+st.subheader("Impact of Features on Price")
+
+# Filtered data based on selected features' impact
+state_of_building_data = filtered_data[['State_of_the_Building', 'Price']].groupby('State_of_the_Building').mean().reset_index()
+number_of_rooms_data = filtered_data[['Number_of_Rooms', 'Price']].groupby('Number_of_Rooms').mean().reset_index()
+fully_equipped_kitchen_data = filtered_data[['Fully_Equipped_Kitchen', 'Price']].groupby('Fully_Equipped_Kitchen').mean().reset_index()
+terrace_data = filtered_data[['Terrace', 'Price']].groupby('Terrace').mean().reset_index()
+
+# State of the Building Impact
+st.write("### Impact of State of the Building on Price")
+st.write("How does the condition of the building affect its price?")
+st.write(state_of_building_data)
+
+# Number of Rooms Impact
+st.write("### Impact of Number of Rooms on Price")
+st.write("How does the number of rooms affect the price?")
+st.write(number_of_rooms_data)
+
+# Fully Equipped Kitchen Impact
+st.write("### Impact of Fully Equipped Kitchen on Price")
+st.write("How does having a fully equipped kitchen influence the price?")
+st.write(fully_equipped_kitchen_data)
+
+# Terrace Impact
+st.write("### Impact of Terrace on Price")
+st.write("Does having a terrace affect the price?")
+st.write(terrace_data)
 
 # Save transformed data if needed
 filtered_data.to_csv("C:/Users/pc click/immo_eliza_analysis/immoweb_data_filtered.csv", index=False)
