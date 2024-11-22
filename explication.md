@@ -48,3 +48,9 @@ Convert categorical variables (e.g., Type_of_Property, Furnished) into numerical
   # b) Compute correlation or assess their impact using advanced techniques like:
 Mean Price grouped by each category.
 ANOVA or chi-squared tests.
+
+Correlation Matrix: Quantifies the relationship between all variables, including encoded categorical ones, with Price.
+Chi-Square Test: Identifies significant associations between categorical variables and Price.
+Point-Biserial Correlation: Highlights relationships between binary categorical variables and Price.
+ANOVA: Assesses the influence of multi-level categorical variables on Price.
+Box Plots: Visual representation of the distribution of Price across different categories.
