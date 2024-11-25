@@ -83,7 +83,7 @@ There are 16631 rows in  16 columns.
 5. Which variables have the greatest influence on the price?  
 6. Which variables have the least influence on the price?
    
-![06_Correlation of Variables with Price](./06.png) 
+![06_Correlation of Variables with Price](./09.png) 
 
 We can see the strongest influence on Living Area (0.43) and followed by Number of Rooms (0.33) with the price.  
 We can see the weakest influence on variables like Lift (0.02) and type of property (0.02) with the prices.  
