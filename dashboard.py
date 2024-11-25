@@ -4,7 +4,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
-
+import geopandas as gpd
 # Load the data
 data = pd.read_csv("C:/Users/pc click/immo_eliza_analysis/immoweb_data_cleaned.csv")
 
@@ -153,18 +153,54 @@ st.write("This table displays average, median prices, and price per square meter
 # Display the table
 st.table(real_estate_df)
 
-# Bin the 'Living_Area' into categories
-size_bins = [0, 50, 100, 200, 300]
-size_bins_labels = ["Small (0-50 m2)", "Medium (50-100 m2)", "Large (100-200 m2)", "Very Large (200-300 m2)"]
-data["Property_Size"] = pd.cut(data['Living_Area'], bins=size_bins, labels=size_bins_labels)
 
-# Create the histogram plot for property sizes
-plt.figure(figsize=(10, 6))
-sns.countplot(x='Property_Size', data=data, order=size_bins_labels, palette='muted')
-plt.title('Distribution of Properties by Size')
-plt.xlabel('Property Size (m²)')
-plt.ylabel('Count')
+# Load the shapefile for Belgian provinces
+belgium_provinces = gpd.read_file("gadm41_BEL_shp/gadm41_BEL_2.shp")
 
-# Show the plot in Streamlit
-st.header("Distribution of Properties by Size")
-st.pyplot(plt)
+# Load the property data
+df = pd.read_csv("immoweb_data_cleaned.csv")
+
+# Correct province names in df_prices to match those in 'NAME_2'
+province_prices = {
+    'Province': ['Antwerpen', 'Oost-Vlaanderen', 'Vlaams Brabant', 'Limburg', 'Bruxelles',
+                 'West-Vlaanderen', 'Hainaut', 'Liège', 'Luxembourg', 'Namur', 'Brabant Wallon'],
+    'Average_Price': [438205.377339, 540219.800177, 425228.522432, 503296.125463, 280955.284305,
+                      389069.238953, 287215.295034, 344578.879552, 290432.886943, 518969.222973, 623104.564666]
+}
+
+df_prices = pd.DataFrame(province_prices)
+
+# Merge the data
+belgium_provinces = belgium_provinces.merge(df_prices, left_on='NAME_2', right_on='Province', how='left')
+
+# Ensure 'Average_Price' is numeric
+belgium_provinces['Average_Price'] = pd.to_numeric(belgium_provinces['Average_Price'], errors='coerce')
+
+# Re-project to a suitable CRS (Belgium Lambert 72 CRS)
+belgium_provinces = belgium_provinces.to_crs(epsg=4326)  # WGS84 CRS for compatibility with Plotly
+
+# Convert GeoDataFrame to DataFrame for Plotly
+belgium_provinces_df = belgium_provinces[['NAME_2', 'Average_Price', 'geometry']]
+
+# Create a Plotly map
+fig = px.choropleth(
+    belgium_provinces_df,
+    geojson=belgium_provinces_df.geometry,
+    locations=belgium_provinces_df.index,
+    color='Average_Price',
+    hover_name='NAME_2',
+    color_continuous_scale="OrRd",
+    labels={'Average_Price': 'Average Price (EUR)', 'NAME_2': 'Province'},
+    title="Average Property Prices by Province in Belgium"
+)
+
+# Update layout for better visualization
+fig.update_geos(fitbounds="locations", visible=False)
+fig.update_layout(
+    geo=dict(showcoastlines=True, coastlinecolor="Black", showland=True, landcolor="white"),
+    coloraxis_colorbar_title="Price (EUR)"
+)
+
+# Show the Plotly map in Streamlit
+st.title("Real Estate Prices in Belgium by Province")
+st.plotly_chart(fig)
