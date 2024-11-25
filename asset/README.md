@@ -55,22 +55,22 @@ The detailed explanation of Data Cleaning is in the **real_estate_data_cleaning.
 • Loaded and explored the dataset.  
 • Analyzed and visualized missing values.  
 
-![Percentage of Missing Values by Column](./asset/01.png.png)  
+![Percentage of Missing Values by Column](./01.png.png)  
 
 • Identified critical columns and columns to drop, with explanations.  
 • Handled missing values appropriately, including imputations based on grouped data.  
 • Categorized data to facilitate better imputation and analysis.  
 
-![Number of Properties by Locality (Top 50)](./asset/02.png)  
+![Number of Properties by Locality (Top 50)](./02.png)  
 
-![Number of Properties by Province](./asset/03.png)  
+![Number of Properties by Province](./03.png)  
 
-![Distribution of Properties by Price Range](./asset/04.png)  
+![Distribution of Properties by Price Range](./04.png)  
 
 • Made deductions based on data patterns to fill missing values logically.  
 • Removed outliers and visualized their impact using both histograms and boxplots.  
 
-![Outliers](./asset/05.png)  
+![Outliers](./05.png)  
 
 • Prepared the dataset for future modeling tasks.  
 
@@ -84,7 +84,7 @@ There are 16631 rows in  16 columns.
 5. Which variables have the greatest influence on the price?  
 6. Which variables have the least influence on the price?
    
-![06_Correlation of Variables with Price](./asset/06.png) 
+![06_Correlation of Variables with Price](./06.png) 
 
 We can see the strongest influence on Living Area (0.43) and followed by Number of Rooms (0.33) with the price.  
 We can see the weakest influence on variables like Lift (0.02) and type of property (0.02) with the prices.  
@@ -96,7 +96,7 @@ We can find surprisingly weak relationships. The features like Swimming_Pool (0.
 Here contributors BOUBAKEUR Manel and FOMICHOV Andrii communicate analysis using tables and graphs.  
 The interpretation of the correlations provided between Price and the respective variables.  
 
-![Correlation Heatmap](./asset/06_Heatmap.png)  
+![Correlation Heatmap](./06_Heatmap.png)  
 
 1_Strong Positive Correlations (Above 0.5): Type_of_Property ↔ Subtype_of_Property (0.71): Subtypes align strongly with property types. Living_Area ↔ Number_of_Rooms (0.72): Larger living areas are strongly linked to more rooms. Surface_area_plot_of_land ↔ Type_of_Property (0.73): Larger land plots correspond to specific property types. Surface_area_plot_of_land ↔ Subtype_of_Property (0.54): Subtypes are influenced by plot size.  
 
@@ -106,7 +106,7 @@ The interpretation of the correlations provided between Price and the respective
 
 4-Negligible Positive Correlations (Below 0.1): Municipality ↔ Type_of_Property (0.04): Minimal correlation between municipalities and property types. Lift ↔ Terrace (0.16): A weak association between lifts and terraces.  
 
-![Price vs Property in Belgium](./asset/10.png)
+![Price vs Property in Belgium](./10.png)
 
 In the above histogram we can see that the fourth bin with the price between 300,000 to 400,000 has the most numbers of observation.  
 Majority of the observations lie in fourth bin.  
@@ -118,7 +118,7 @@ In the above histogram we can see that the fourth bin with the price between 300
 Majority of the observations lie within the second to fifth bin.  
 Mean is 334,952, Median is 319,000 & mode is 299,000 euro.
 
-![Price vs Apartment in Belgium](./asset/12.png)
+![Price vs Apartment in Belgium](./12.png)
 
 
 
