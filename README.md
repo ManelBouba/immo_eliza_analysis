@@ -83,7 +83,7 @@ There are 16631 rows in  16 columns.
 5. Which variables have the greatest influence on the price?  
 6. Which variables have the least influence on the price?
    
-![06_Correlation of Variables with Price](./06.png) 
+![06_Correlation of Variables with Price](./06_Heatmap.png) 
 
 We can see the strongest influence on Living Area (0.43) and followed by Number of Rooms (0.33) with the price.  
 We can see the weakest influence on variables like Lift (0.02) and type of property (0.02) with the prices.  
@@ -105,19 +105,19 @@ The interpretation of the correlations provided between Price and the respective
 
 4-Negligible Positive Correlations (Below 0.1): Municipality ↔ Type_of_Property (0.04): Minimal correlation between municipalities and property types. Lift ↔ Terrace (0.16): A weak association between lifts and terraces.  
 
-![07_Distribution of Property Price.png](./07_Distribution of Property Price.png)
+![Price vs Property in Delgium](./10.png)
 
 In the above histogram we can see that the fourth bin with the price between 300,000 to 400,000 has the most numbers of observation.  
 Majority of the observations lie in fourth bin.  
 Mean is **330,684**, Median is **299,000** & mode is **299,000** euro.  
 
-![Graph11](./11.png)
+![Price vs House](./11.png)
 
 In the above histogram we can see that the fourth bin with the price between 300,000 to 400,000 has the most numbers of observation.  
 Majority of the observations lie within the second to fifth bin.  
 Mean is 334,952, Median is 319,000 & mode is 299,000 euro.
 
-![Graph12](./12.png)
+![Price vs Apartment](./12.png)
 
 
 
