@@ -132,16 +132,18 @@ Mean is 334,952, Median is 319,000 & mode is 299,000 euro.
 
 
 4. In your opinion, which 5 variables are the most important and why?
-    - Price
-    - Living Area
-    - 
-    - 
-What are the most expensive municipalities in Belgium? (Average price, median price, price per square meter)
-What are the most expensive municipalities in Wallonia? (Average price, median price, price per square meter)
-What are the most expensive municipalities in Flanders? (Average price, median price, price per square meter)
-What are the less expensive municipalities in Belgium? (Average price, median price, price per square meter)
-What are the less expensive municipalities in Wallonia? (Average price, median price, price per square meter)
-What are the less expensive municipalities in Flanders? (Average price, median price, price per square meter)
+    - Price  
+    - Locality  
+    - Living Area  
+    - State of the Building  
+    - Number of Rooms  
+5. What are the most expensive municipalities in Belgium? (Average price, median price, price per square meter)  
+6. What are the most expensive municipalities in Wallonia? (Average price, median price, price per square meter)  
+7. What are the most expensive municipalities in Flanders? (Average price, median price, price per square meter)  
+8. What are the less expensive municipalities in Belgium? (Average price, median price, price per square meter)  
+9. What are the less expensive municipalities in Wallonia? (Average price, median price, price per square meter)  
+10. What are the less expensive municipalities in Flanders? (Average price, median price, price per square meter)  
+
 | Region    | Municipality           | Type             | Average Price (EUR) | Median Price (EUR) | Price per Square Meter (EUR) |
 |-----------|------------------------|------------------|---------------------|--------------------|------------------------------|
 | Belgium   | Knokke-Heist           | Most Expensive   | 601,451.55          | 599,000.00         | 7,464.10                     |
@@ -158,5 +160,5 @@ What are the less expensive municipalities in Flanders? (Average price, median p
 ## Contributors
 List of team members:  
 [BOUBAKEUR Manel](https://www.linkedin.com/in/boubakeur-manel-52679a159/)  
-[LAI Edoardo](https://www.linkedin.com/in/edoardo-lai/)
+[LAI Edoardo](https://www.linkedin.com/in/edoardo-lai/)  
 [FOMICHOV Andrii](https://www.linkedin.com/in/andrii-fomichov-73928642/)
