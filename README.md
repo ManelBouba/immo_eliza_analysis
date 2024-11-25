@@ -23,7 +23,7 @@ We will use the previously scraped dataset, clean the data, and perform the anal
 
 ```plaintext
 immo-eliza-analysis/
-├── asset/                                     # Folder containing files for graphs visualizations
+├── assets/                                     # Folder containing files for graphs visualizations
 ├── Data/                                      # Folder containing all datasets
 ├── map/                                       # Folder containing files for map visualizations
 │   ├── immoweb_data.csv                       # Raw dataset
