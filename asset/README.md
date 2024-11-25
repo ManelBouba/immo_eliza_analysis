@@ -63,7 +63,7 @@ The detailed explanation of Data Cleaning is in the **real_estate_data_cleaning.
 
 ![Number of Properties by Locality (Top 50)](./Num_Properties_Local.png)  
 
-![Number of Properties by Province](./03.png)  
+![Number of Properties by Province](./Num_Properties_Province.png)  
 
 ![Distribution of Properties by Price Range](./04.png)  
 
