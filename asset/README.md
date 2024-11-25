@@ -61,7 +61,7 @@ The detailed explanation of Data Cleaning is in the **real_estate_data_cleaning.
 • Handled missing values appropriately, including imputations based on grouped data.  
 • Categorized data to facilitate better imputation and analysis.  
 
-![Number of Properties by Locality (Top 50)](./02.png)  
+![Number of Properties by Locality (Top 50)](./Num_Properties_Local.png)  
 
 ![Number of Properties by Province](./03.png)  
 
