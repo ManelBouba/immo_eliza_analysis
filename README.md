@@ -22,21 +22,20 @@ We will use the previously scraped dataset, clean the data, and perform the anal
 ### Project Directory Structure
 
 ```plaintext
-immo-eliza/
-├── 1.immo_eliza_scraping.md                   # The main task from BeCode
-├── README.md                                  # Project overview and instructions
-├── Data_Analysis.py                           # Run analysis on the cleaned data
-├── Data_Cleaning.py                           # Run cleaning on raw immoweb_data.csv
-├── dashboard.py                               # Build and run dashboard
-├── real_estate_data_analysis.ipynb            # Jupyter notebook for data analysis
-├── real_estate_data_cleaning.ipynb            # Jupyter notebook for data cleaning
+immo-eliza-analysis/
 ├── asset/                                     # Folder containing files for graphs visualizations
 ├── Data/                                      # Folder containing all datasets
+├── map/                                       # Folder containing files for map visualizations
 │   ├── immoweb_data.csv                       # Raw dataset
 │   ├── immoweb_data_cleaned.csv               # Cleaned dataset
 │   ├── immoweb_data_filtred.csv               # Filtered dataset
 │   ├── encoded_data.csv                       # Encoded dataset
-├── map/                                       # Folder containing files for map visualizations
+├── dashboard.py                               # Build and run dashboard
+├── Data_Analysis.py                           # Run analysis on the cleaned data
+├── Data_Cleaning.py                           # Run cleaning on raw immoweb_data.csv
+├── README.md                                  # Project overview and instructions
+├── real_estate_data_analysis.ipynb            # Jupyter notebook for data analysis
+├── real_estate_data_cleaning.ipynb            # Jupyter notebook for data cleaning
 ```
 
 ### Clone the Repository
@@ -133,6 +132,52 @@ In this step, the analysis was communicated through tables and graphs by [BOUBAK
    - **Vaux-sur-Sûre**: Average Price = 125,000.00 EUR | Price per sqm = 657.89 EUR
 
    The full breakdown for Wallonia and Flanders is provided in the project.
+   
+## Graphs
+
+Here are the visualizations related to the project:
+
+- **Correlation Heatmap for Apartment**
+  ![Correlation Heatmap for Apartment](assets/Correlation_Heatmap_for_Apartment.png)
+
+- **Correlation Heatmap for Houses**
+  ![Correlation Heatmap for Houses](assets/Correlation_Heatmap_for_Houses.png)
+
+- **Distribution of Property Prices**
+  ![Distribution of Property Prices](assets/Distribution_of_Property_Price.png)
+
+- **Heatmap of Variable Correlations**
+  ![Heatmap of Variable Correlations](assets/Heatmap_correlation_variables.png)
+
+- **Heatmap of Correlation Between Variables and Price**
+  ![Heatmap of Correlation Between Variables and Price](assets/Heatmap_correlation_Variables_Price.png)
+
+- **Number of Properties by Location**
+  ![Number of Properties by Location](assets/Num_Properties_Local.png)
+
+- **Number of Properties by Province**
+  ![Number of Properties by Province](assets/Num_Properties_Province.png)
+
+- **Outliers**
+  ![Outliers](assets/Outliers.png)
+
+- **Percentage of Missing Values**
+  ![Percentage of Missing Values](assets/Percentage_Missing_Values.png)
+
+- **Price vs Area**
+  ![Price vs Area](assets/Price_vs_Area.png)
+
+- **Price for Apartments**
+  ![Price for Apartments](assets/Price_for_Apartment.png)
+
+- **Price for Houses**
+  ![Price for Houses](assets/Price_for_Houses.png)
+
+- **Price for Properties**
+  ![Price for Properties](assets/Price_for_properties.png)
+
+- **Properties Price Distribution**
+  ![Properties Price Distribution](assets/Properties_Price.png)
 
 ## Contributors
 
