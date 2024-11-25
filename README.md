@@ -14,7 +14,9 @@
 5. [Team](#team)
 
 ## The Mission
-We are continuing our path for creation a machine learning model to predict prices on Belgium’s sales. In this step we need to do a preliminary analysis to gather some information. So we have to take the dataset previously scraped to do the analysis and clean it.
+We are continuing our path for creation a machine learning model to predict prices on Belgium’s sales.  
+In this step we need to do a preliminary analysis to gather some information.  
+So we have to take the dataset previously scraped to do the analysis and clean it.
 
 ## Installation
 ### Project Directory Structure NEED TO FINALIZE!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -63,9 +65,9 @@ To start the program, run:
 The deatailed explanaition of Data Cleaning is in the **real_estate_data_cleaning.ipynb**, Notebook by contributor LAI Edoardo.
 
 ### **Conclusion for Data Cleaning**
-• Loaded and explored the dataset.
+• Loaded and explored the dataset.  
 • Analyzed and visualized missing values.
-[Graph1](./assets/01.png)
+[Graph1](./01.png)
 • Identified critical columns and columns to drop, with explanations.
 • Handled missing values appropriately, including imputations based on grouped data.
 • Categorized data to facilitate better imputation and analysis.
