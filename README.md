@@ -69,7 +69,7 @@ The deatailed explanaition of Data Cleaning is in the **real_estate_data_cleanin
 • Made deductions based on data patterns to fill missing values logically.  
 • Removed outliers and visualized their impact using both histograms and boxplots.  
 
-![Graph5](./assets/05.png)  
+![Outliers](./05.png)  
 
 • Prepared the dataset for future modeling tasks.  
 
@@ -83,7 +83,7 @@ There are 16631 rows in  16 columns.
 5. Which variables have the greatest influence on the price?  
 6. Which variables have the least influence on the price?
    
-![Graph6](./06.png) 
+![06_Correlation of Variables with Price](./06.png) 
 
 We can see the strongest influence on Living Area (0.43) and followed by Number of Rooms (0.33) with the price.  
 We can see the weakest influence on variables like Lift (0.02) and type of property (0.02) with the prices.  
@@ -95,7 +95,7 @@ We can find surprisingly weak relationships.The features like Swimming_Pool (0.0
 Here contributors BOUBAKEUR Manel and FOMICHOV Andrii communicate analysis using tables and graphs.  
 The interpretation of the correlations provided between Price and the respective variables.  
 
-![Graph6_1](./0006.png)  
+![Correlation Heatmap](./06_Heatmap.png)  
 
 1_Strong Positive Correlations (Above 0.5): Type_of_Property ↔ Subtype_of_Property (0.71): Subtypes align strongly with property types. Living_Area ↔ Number_of_Rooms (0.72): Larger living areas are strongly linked to more rooms. Surface_area_plot_of_land ↔ Type_of_Property (0.73): Larger land plots correspond to specific property types. Surface_area_plot_of_land ↔ Subtype_of_Property (0.54): Subtypes are influenced by plot size.  
 
