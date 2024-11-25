@@ -30,6 +30,7 @@ immo-eliza/
 ├── dashboard.py                               # Build and run dashboard
 ├── real_estate_data_analysis.ipynb            # Jupyter notebook for data analysis
 ├── real_estate_data_cleaning.ipynb            # Jupyter notebook for data cleaning
+├── asset/                                     # Folder containing files for graphs visualizations
 ├── Data/                                      # Folder containing all datasets
 │   ├── immoweb_data.csv                       # Raw dataset
 │   ├── immoweb_data_cleaned.csv               # Cleaned dataset
