@@ -95,7 +95,7 @@ We can find surprisingly weak relationships.The features like Swimming_Pool (0.0
 Here contributors BOUBAKEUR Manel and FOMICHOV Andrii communicate analysis using tables and graphs.  
 The interpretation of the correlations provided between Price and the respective variables.  
 
-![Correlation Heatmap](./06_Heatmap.png)  
+![Correlation Heatmap](./06.png)  
 
 1_Strong Positive Correlations (Above 0.5): Type_of_Property ↔ Subtype_of_Property (0.71): Subtypes align strongly with property types. Living_Area ↔ Number_of_Rooms (0.72): Larger living areas are strongly linked to more rooms. Surface_area_plot_of_land ↔ Type_of_Property (0.73): Larger land plots correspond to specific property types. Surface_area_plot_of_land ↔ Subtype_of_Property (0.54): Subtypes are influenced by plot size.  
 
