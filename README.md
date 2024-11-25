@@ -94,8 +94,6 @@ The detailed explanation of Data Analysis is in the Jupyter notebook **real_esta
     - `Swimming Pool (0.03)`
     - `Garden (0.04)`
 
-  ![06_Correlation of Variables with Price](./assets/06.png)
-
 - **Qualitative and Quantitative Variables**:
   - We analyzed both types of variables and discussed the transformation of qualitative variables into numerical values for analysis.
 
