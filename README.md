@@ -67,17 +67,17 @@ The deatailed explanaition of Data Cleaning is in the **real_estate_data_cleanin
 ### **Conclusion for Data Cleaning**
 • Loaded and explored the dataset.  
 • Analyzed and visualized missing values.
-[Graph1](./01_Percentage of Missing Values by Column.png)
-• Identified critical columns and columns to drop, with explanations.
-• Handled missing values appropriately, including imputations based on grouped data.
-• Categorized data to facilitate better imputation and analysis.
-[Graph2](./assets/02.png)
-[Graph3](./assets/03.png)
-[Graph4](./assets/04.png)
-• Made deductions based on data patterns to fill missing values logically.
-• Removed outliers and visualized their impact using both histograms and boxplots.
-[Graph5](./assets/05.png)
-• Prepared the dataset for future modeling tasks.
+[Graph1](./01_Percentage of Missing Values by Column.png)  
+• Identified critical columns and columns to drop, with explanations.  
+• Handled missing values appropriately, including imputations based on grouped data.  
+• Categorized data to facilitate better imputation and analysis.  
+[Graph2](./02_Number of Properties by Locality (Top 50).png)  
+[Graph3](./03_Number of Properties by Province.png)  
+[Graph4](./04_Distribution of Properties by Price Range.png)  
+• Made deductions based on data patterns to fill missing values logically.  
+• Removed outliers and visualized their impact using both histograms and boxplots.  
+[Graph5](./assets/05.png)  
+• Prepared the dataset for future modeling tasks.  
 
 ### **Step 2 : Data Analysis**
 The deatailed explanaition of Data Analysing is in the **real_estate_data_analysis.ipynb**, Notebook by contributor BOUBAKEUR Manel.
