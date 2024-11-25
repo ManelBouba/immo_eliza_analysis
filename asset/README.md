@@ -96,7 +96,7 @@ We can find surprisingly weak relationships. The features like Swimming_Pool (0.
 Here contributors BOUBAKEUR Manel and FOMICHOV Andrii communicate analysis using tables and graphs.  
 The interpretation of the correlations provided between Price and the respective variables.  
 
-![Correlation Heatmap](./06_Heatmap.png)  
+![Correlation Heatmap](./Heatmap.png)  
 
 1_Strong Positive Correlations (Above 0.5): Type_of_Property ↔ Subtype_of_Property (0.71): Subtypes align strongly with property types. Living_Area ↔ Number_of_Rooms (0.72): Larger living areas are strongly linked to more rooms. Surface_area_plot_of_land ↔ Type_of_Property (0.73): Larger land plots correspond to specific property types. Surface_area_plot_of_land ↔ Subtype_of_Property (0.54): Subtypes are influenced by plot size.  
 
@@ -106,19 +106,19 @@ The interpretation of the correlations provided between Price and the respective
 
 4-Negligible Positive Correlations (Below 0.1): Municipality ↔ Type_of_Property (0.04): Minimal correlation between municipalities and property types. Lift ↔ Terrace (0.16): A weak association between lifts and terraces.  
 
-![Price vs Property in Belgium](./10.png)
+![Price vs Property in Belgium](./Price for properties.png)
 
 In the above histogram we can see that the fourth bin with the price between 300,000 to 400,000 has the most numbers of observation.  
 Majority of the observations lie in fourth bin.  
 Mean is **330,684**, Median is **299,000** & mode is **299,000** euro.  
 
-![Price vs House in Belgium](./asset/11.png)
+![Price vs House in Belgium](./Price for Houses.png)
 
 In the above histogram we can see that the fourth bin with the price between 300,000 to 400,000 has the most numbers of observation.  
 Majority of the observations lie within the second to fifth bin.  
 Mean is 334,952, Median is 319,000 & mode is 299,000 euro.
 
-![Price vs Apartment in Belgium](./12.png)
+![Price vs Apartment in Belgium](./Price for Apartment.png)
 
 
 
