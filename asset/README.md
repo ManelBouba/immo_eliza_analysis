@@ -112,7 +112,7 @@ In the above histogram we can see that the fourth bin with the price between 300
 Majority of the observations lie in fourth bin.  
 Mean is **330,684**, Median is **299,000** & mode is **299,000** euro.  
 
-![Price vs House in Belgium](./Price_for_ Houses.png)
+![Price vs House in Belgium](./Price_for_Houses.png)
 
 In the above histogram we can see that the fourth bin with the price between 300,000 to 400,000 has the most numbers of observation.  
 Majority of the observations lie within the second to fifth bin.  
