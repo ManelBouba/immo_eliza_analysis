@@ -67,7 +67,7 @@ The deatailed explanaition of Data Cleaning is in the **real_estate_data_cleanin
 ### **Conclusion for Data Cleaning**
 • Loaded and explored the dataset.  
 • Analyzed and visualized missing values.
-[Graph1](./01.png)
+[Graph1](./01_Percentage of Missing Values by Column.png)
 • Identified critical columns and columns to drop, with explanations.
 • Handled missing values appropriately, including imputations based on grouped data.
 • Categorized data to facilitate better imputation and analysis.
