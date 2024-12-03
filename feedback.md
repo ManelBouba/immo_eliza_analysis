@@ -3,6 +3,8 @@
 - Code: no oop and huge try statement, not a good practice. It's not clean (no typing, no docstring)
 - notebooks ok
 - No useless branches on github :thumbsup:
+- correlation analysis a bit vague 
+- good strategy to get the distribution per province and critical and non critical columns
 - Good git usage :fire: but try not pushing so many similar commits 
 - dataset absolute path hardcoded in dashboard, gave an error while launching and using streamlit. Use relative path instead
 - Good idea to create a streamlit :fire:
